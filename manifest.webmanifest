@@ -1,4 +1,5 @@
 {
+  "id": "/ai-shot/",
   "name": "AI 샷",
   "short_name": "AI 샷",
   "description": "손짓·표정·포즈·소리로 셔터를 누르는 수업용 카메라 웹앱",
