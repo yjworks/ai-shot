@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- userSpaceOnUse: 세로 직선·원호는 바운딩 박스가 납작해서
+         objectBoundingBox 그라디언트가 제대로 칠해지지 않는다 -->
+    <linearGradient id="ring" gradientUnits="userSpaceOnUse" x1="256" y1="100" x2="256" y2="412">
+      <stop offset="0" stop-color="#46DBF5"/>
+      <stop offset="1" stop-color="#1C7A9B"/>
+    </linearGradient>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0" stop-color="#14232A"/>
+      <stop offset="1" stop-color="#070A0C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경은 가장자리까지. maskable 로 잘려도 안전하다 -->
+  <rect width="512" height="512" fill="url(#bg)"/>
+
+  <!-- 조리개 링 — 6조각으로 끊어 기구처럼 보이게.
+       둘레 2π·148 ≈ 930 을 6등분(155)해서 대시 131 + 간격 24 -->
+  <circle cx="256" cy="256" r="148" fill="none" stroke="url(#ring)"
+          stroke-width="40" stroke-linecap="butt"
+          stroke-dasharray="131 24" transform="rotate(-90 256 256)"/>
+
+  <!-- 저절로 찍힌다 — 앱 안 배지와 같은 번개 표시 -->
+  <path d="M13 2 L4 14 h6 l-1 8 9-12 h-6 z"
+        transform="translate(145.5 154) scale(8.5)"
+        fill="#FFFFFF"/>
+</svg>
