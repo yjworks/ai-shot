@@ -285,6 +285,13 @@ body.gal header{background:rgba(15,20,23,.9);backdrop-filter:blur(14px);
 .galsec > .gh .st-badge{font-size:11px;font-weight:700;color:#8FA3AE;text-transform:none}
 .galsec > .gh .db{padding:7px 11px;font-size:12px}
 #phGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px}
+/* 저장 공간 — 브라우저가 용량 압박에 IndexedDB 를 통째로 비우기 전에 보이게 */
+#stBar{display:flex;align-items:center;gap:8px;margin:0 0 9px}
+#stBar .sttrack{flex:1;height:5px;border-radius:999px;background:rgba(255,255,255,.09);overflow:hidden}
+#stBar .stfill{height:100%;width:0;border-radius:999px;background:#4FA8C8;transition:width .3s}
+#stBar .sttxt{font-size:11px;font-weight:700;color:#8FA3AE;white-space:nowrap}
+#stBar.warn .stfill{background:#E2794F}
+#stBar.warn .sttxt{color:#E2794F}
 .shot{position:relative;border:0;border-radius:12px;overflow:hidden;padding:0;
   background:rgba(255,255,255,.05);cursor:pointer;aspect-ratio:1}
 .shot img{width:100%;height:100%;object-fit:cover;display:block}
