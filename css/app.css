@@ -65,6 +65,9 @@ header.db-bar{position:fixed;left:0;right:0;top:0;z-index:20;
 header.db-bar .db-title{min-width:0;overflow:hidden;text-overflow:ellipsis}
 header.db-bar .db-btn{flex:none;text-decoration:none;font-size:15px;color:var(--db-text)}
 header.db-bar #langToggle{font-size:13px;color:var(--db-sub)}
+/* 갤러리: 앱 이름 옆에 지금 화면 이름을 작게 (클립박스·스냅박스의 .brand-sub 와 같은 모양) */
+header.db-bar .db-subtitle{font-size:12px;font-weight:600;color:var(--db-sub);white-space:nowrap;
+  padding-left:10px;margin-left:2px;border-left:1px solid var(--db-line)}
 #engine{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   font-size:11px;font-weight:700;color:var(--db-sub);margin-left:2px}
 
@@ -74,7 +77,7 @@ header.db-bar #langToggle{font-size:13px;color:var(--db-sub)}
   display:flex;gap:6px;padding:0 11px;justify-content:center;
   overflow-x:auto;scrollbar-width:none}
 .srcpick::-webkit-scrollbar{display:none}
-.srcpick .db{flex:0 0 auto;gap:5px;padding:7px 13px;border-radius:999px;font-size:12px;font-weight:700;
+.srcpick .db{flex:0 0 auto;gap:5px;padding:7px 13px;min-height:var(--db-hit);border-radius:999px;font-size:12px;font-weight:700;
   color:var(--db-text);background:var(--glass);border:1px solid rgba(255,255,255,.14);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .srcpick .db.on{background:var(--acc);border-color:var(--acc);color:var(--db-on-accent)}
@@ -121,7 +124,7 @@ header.db-bar #langToggle{font-size:13px;color:var(--db-sub)}
 /* 모드 탭 */
 .modetabs{flex-shrink:0;display:flex;gap:4px;padding:2px 16px 8px}
 .modetabs .mt{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  padding:9px 8px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;
+  min-height:var(--db-hit);padding:9px 8px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;
   font-family:inherit;color:var(--db-sub);background:transparent;border:0}
 .modetabs .mt.on{background:var(--acc-tint);color:var(--db-text);box-shadow:inset 0 0 0 1px rgba(157,134,255,.45)}
 
@@ -157,7 +160,7 @@ header.db-bar #langToggle{font-size:13px;color:var(--db-sub)}
 .pb-label{font-size:10.5px;font-weight:800;color:var(--db-sub);margin:0 0 5px;
   text-transform:uppercase;letter-spacing:.04em}
 .row{display:flex;gap:6px}
-.inp{flex:1;min-width:0;width:100%;border:1px solid var(--db-line);
+.inp{flex:1;min-width:0;width:100%;min-height:var(--db-hit);border:1px solid var(--db-line);
   background:var(--db-card);border-radius:11px;padding:10px 11px;font-size:14px;
   font-family:inherit;color:var(--db-text);outline:none;appearance:none}
 .inp:focus{border-color:var(--acc)}
@@ -175,12 +178,14 @@ input[type=range]{accent-color:var(--acc);height:26px}
 
 .seg{display:inline-flex;background:var(--db-card);border:1px solid var(--db-line);
   border-radius:11px;overflow:hidden}
-.seg button{flex:1;border:0;background:transparent;padding:9px 6px;font-size:12.5px;font-weight:700;
+.seg button{flex:1;border:0;background:transparent;min-height:var(--db-hit);padding:9px 6px;font-size:12.5px;font-weight:700;
   color:var(--db-sub);cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;
   justify-content:center;gap:5px;white-space:nowrap}
 .seg button.on{background:var(--acc);color:var(--db-on-accent)}
 
+/* 누르는 곳은 가로·세로 모두 44px 이상(--db-hit) */
 .db{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:var(--db-hit);min-width:var(--db-hit);
   border:1px solid var(--db-line);background:var(--db-card);color:var(--db-text);
   border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:700;cursor:pointer;
   font-family:inherit;-webkit-user-select:none;user-select:none;touch-action:manipulation;
@@ -214,7 +219,8 @@ input[type=range]{accent-color:var(--acc);height:26px}
 .cls .nm{flex:1;font-size:13.5px;font-weight:800;color:var(--db-text);overflow:hidden;
   text-overflow:ellipsis;white-space:nowrap}
 .cls .ct{font-size:11px;color:var(--db-sub);font-weight:700;flex-shrink:0;font-variant-numeric:tabular-nums}
-.cls .del{border:0;background:none;color:var(--db-sub);cursor:pointer;padding:3px 4px;font-size:12px}
+.cls .del{border:0;background:none;color:var(--db-sub);cursor:pointer;padding:0;font-size:12px;
+  min-width:var(--db-hit);min-height:var(--db-hit);margin:-10px -10px -10px 0}   /* 카드 높이는 그대로, 누르는 곳만 넓게 */
 .thumbs{display:flex;gap:3px;margin-top:7px;overflow-x:auto;scrollbar-width:none}
 .thumbs::-webkit-scrollbar{display:none}
 .thumbs img{width:34px;height:34px;object-fit:cover;border-radius:6px;display:block;
@@ -262,8 +268,8 @@ input[type=range]{accent-color:var(--acc);height:26px}
 .tour-dots{flex:1;display:flex;gap:4px;align-items:center}
 .tour-dots .dot{width:6px;height:6px;border-radius:50%;background:var(--db-line)}
 .tour-dots .dot.on{background:var(--acc)}
-.tour-skip{font-size:12px;padding:7px 11px}
-.tour-next{font-size:13px;padding:7px 16px}
+.tour-skip{font-size:12px;padding:7px 11px;min-height:var(--db-hit)}
+.tour-next{font-size:13px;padding:7px 16px;min-height:var(--db-hit)}
 
 /* ══ 갤러리 ══ */
 body.gal{background:var(--db-bg);position:static}
@@ -276,6 +282,8 @@ body.gal header.db-bar{background:var(--db-bg);border-bottom-color:var(--db-line
   font-size:12px;font-weight:800;color:var(--db-text);text-transform:uppercase;letter-spacing:.04em}
 .galsec > .gh .st-badge{font-size:11px;font-weight:700;color:var(--db-sub);text-transform:none}
 .galsec > .gh .db{padding:7px 11px;font-size:12px}
+/* '전부 지우기'는 zip 버튼과 붙여 두지 않는다 — 잘못 눌러 사진을 다 지우지 않게 */
+.galsec > .gh #phClear{margin-left:14px}
 #phGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px}
 /* 저장 공간 — 브라우저가 용량 압박에 IndexedDB 를 통째로 비우기 전에 보이게 */
 #stBar{display:flex;align-items:center;gap:8px;margin:0 0 9px}
@@ -310,7 +318,7 @@ body.gal header.db-bar{background:var(--db-bg);border-bottom-color:var(--db-line
 .mdcard .ms{font-size:11.5px;color:var(--db-sub);font-weight:700;margin-top:3px;overflow:hidden;
   text-overflow:ellipsis;white-space:nowrap}
 .mdcard .ma{display:flex;gap:4px;flex-shrink:0}
-.mdcard .ma .db{width:36px;height:36px;padding:0;border-radius:11px}
+.mdcard .ma .db{width:var(--db-hit);height:var(--db-hit);padding:0;border-radius:11px}
 .dropzone{border:1.5px dashed var(--db-line);border-radius:14px;padding:16px;
   text-align:center;color:var(--db-sub);font-size:12.5px;font-weight:700;margin-top:10px;cursor:pointer}
 .dropzone.over{border-color:var(--acc);color:var(--acc);background:var(--acc-tint)}

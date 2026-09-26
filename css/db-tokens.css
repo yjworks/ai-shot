@@ -3,7 +3,7 @@
  * 허브·도구·딴짓·키즈랩·AI 샷이 같은 파일을 복사해 쓴다. 값을 바꿀 때는 원본을 고친 뒤 각 저장소에 다시 복사한다.
  *
  * 쓰는 법: <html data-db-app="games" data-db-theme="dark"> 처럼 앱과 밝기를 정한다.
- *   data-db-app    hub | kids-lab | games | ai-shot   (강조색이 바뀐다)
+ *   data-db-app    hub | kids-lab | games | ai-shot | clip-box | snap-box   (강조색이 바뀐다)
  *   data-db-theme  light | dark | 없음(기기 설정을 따른다)
  */
 :root {
@@ -32,6 +32,8 @@
 [data-db-app="kids-lab"] { --db-accent: #f5b400; --db-accent-bg: #f5b400; --db-on-accent: #16181d; --db-bg: #fdf7e8; }  /* 키즈랩은 따뜻한 크림 바탕 */
 [data-db-app="games"]    { --db-accent: #c2410c; --db-accent-bg: #c2410c; --db-on-accent: #ffffff; }
 [data-db-app="ai-shot"]  { --db-accent: #6d4ae6; --db-accent-bg: #6d4ae6; --db-on-accent: #ffffff; }
+[data-db-app="clip-box"] { --db-accent: #0f766e; --db-accent-bg: #0f766e; --db-on-accent: #ffffff; }
+[data-db-app="snap-box"] { --db-accent: #be185d; --db-accent-bg: #be185d; --db-on-accent: #ffffff; }
 
 /* 어두운 화면. 어두운 바탕에서는 강조색을 밝은 쪽으로 쓰고, 그 위 글자는 어두운 색 */
 [data-db-theme="dark"] {
@@ -40,6 +42,8 @@
 }
 [data-db-theme="dark"][data-db-app="games"]   { --db-accent: #ff8a4c; --db-accent-bg: #ff8a4c; --db-on-accent: #111318; }
 [data-db-theme="dark"][data-db-app="ai-shot"] { --db-accent: #9d86ff; --db-accent-bg: #9d86ff; --db-on-accent: #111318; }
+[data-db-theme="dark"][data-db-app="clip-box"] { --db-accent: #2dd4bf; --db-accent-bg: #2dd4bf; --db-on-accent: #111318; }
+[data-db-theme="dark"][data-db-app="snap-box"] { --db-accent: #f472b6; --db-accent-bg: #f472b6; --db-on-accent: #111318; }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-db-theme]) {
