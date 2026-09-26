@@ -132,8 +132,9 @@ DigitalBrain(https://dibrain.dev/) 브랜드를 따른다. 원본은 `leeyunjai.
 
 - dataURL 로 바꾸지 말 것 — 용량 33% 늘고 느리다. 화면에 걸 때만
   `createObjectURL` 하고 지울 때·페이지 떠날 때 반드시 `revokeObjectURL`.
-- 모델: IndexedDB `sense-lab`. **이 이름을 바꾸지 말 것** — 브라우저가 새 빈
-  DB 로 인식해서 이미 저장된 모델이 전부 안 보이게 된다.
+- 모델: IndexedDB `ai-shot-models`, 가중치는 `indexeddb://ai-shot-model-{이름}`. **이 이름을 바꾸지 말 것** —
+  브라우저가 새 빈 DB 로 인식해서 이미 저장된 모델이 전부 안 보이게 된다.
+  (2026-09 에 예전 이름에서 이 이름으로 바꿨다. 그 전에 가르친 동작은 옮기지 않았다 — 다시 가르치면 1초면 된다.)
 - `requestPersist()` 를 두 페이지 시작에서 부른다. 부르지 않으면 저장소가
   best-effort 등급이라 기기 용량이 빠듯해질 때 브라우저가 **통째로 비운다**.
   수업 중 사진과 모델이 예고 없이 사라지는 경로가 이것이다.

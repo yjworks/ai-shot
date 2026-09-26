@@ -21,7 +21,7 @@
 // skipWaiting 은 일부러 쓰지 않는다. 돌고 있는 화면 밑에서 모듈이 바뀌면
 // 촬영 중에 깨질 수 있다. 새 버전은 탭을 모두 닫았다 열 때 올라온다.
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const SHELL = 'aishot-shell-' + CACHE_VERSION;
 const RUNTIME = 'aishot-runtime-' + CACHE_VERSION;
 const KEEP = [SHELL, RUNTIME];
