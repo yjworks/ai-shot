@@ -21,7 +21,7 @@
 // skipWaiting 은 일부러 쓰지 않는다. 돌고 있는 화면 밑에서 모듈이 바뀌면
 // 촬영 중에 깨질 수 있다. 새 버전은 탭을 모두 닫았다 열 때 올라온다.
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const SHELL = 'aishot-shell-' + CACHE_VERSION;
 const RUNTIME = 'aishot-runtime-' + CACHE_VERSION;
 const KEEP = [SHELL, RUNTIME];
@@ -35,6 +35,7 @@ const SHELL_FILES = [
   './gallery.html',
   './manifest.webmanifest',
 
+  './css/db-tokens.css',
   './css/app.css',
   './css/all.min.css',
   './assets/fonts/pretendard.css',
@@ -61,12 +62,13 @@ const SHELL_FILES = [
 
   './vendor/tfjs/tf.min.js',
 
+  './assets/img/favicon.ico',
   './assets/img/favicon.png',
+  './assets/img/icon.svg',
   './assets/img/icon-192.png',
   './assets/img/icon-512.png',
-  './assets/img/pibo-logo.png',
-  './assets/img/pibo-idea.png',
-  './assets/img/pibo-hello.png',
+  './assets/img/maskable-512.png',
+  './assets/img/apple-touch-icon.png',
 ];
 
 // 한 번 받으면 바뀌지 않는 것들 — 캐시 우선

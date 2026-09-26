@@ -47,6 +47,8 @@ teaching, export, delete. Drop an exported zip back in to restore it.
 - After a shot the shutter rests ~1.5 s — that is also what stops the
   shutter sound from re-triggering the sound trigger.
 - Add to Home Screen for a fullscreen, app-like launch.
+- The screen speaks your browser's language (Korean or English); the 한 / EN
+  button in the top bar switches it and remembers your choice.
 
 ---
 
@@ -97,6 +99,8 @@ teaching, export, delete. Drop an exported zip back in to restore it.
 - 한 번 찍으면 약 1.5초 쉽니다. 찰칵 소리가 마이크로 되돌아와 소리 트리거가
   연달아 터지는 것도 이 구간이 막습니다.
 - "홈 화면에 추가"하면 전체화면 앱처럼 열립니다.
+- 화면 언어는 브라우저 설정(한국어/영어)을 따릅니다. 상단 바의 한 / EN
+  버튼으로 바꾸면 그 선택을 기억합니다.
 
 ---
 

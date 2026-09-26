@@ -27,7 +27,8 @@ MIME 이 틀리면 wasm 스트리밍 컴파일이 실패한다:
 index.html      앱 셸 한 장 — 촬영/학습을 시트 안에서 좌우로 넘긴다
 gallery.html    사진 + 가르친 동작
 sw.js           서비스 워커 — 최초 로드 뒤 오프라인
-css/app.css     앱 셸 전부 (색 토큰 내장)
+css/db-tokens.css  DigitalBrain 공통 토큰 + 상단 바 (원본 복사본 — 여기서 고치지 말 것)
+css/app.css     앱 셸 전부 (공통 토큰 위에 앱 몫만)
 lib/
   app.js          셸 배선 — 판 넘기기·시트·소스 칩·모드에 따른 셔터
   engine.js       카메라·마이크·감지기 (촬영/학습 공용) + cover 맞춤
@@ -43,11 +44,11 @@ lib/
   bgfx.js         배경 바꾸기 (셀피 세그멘테이션)
   wakelock.js     카메라가 켜져 있는 동안 화면이 자지 않게
   swreg.js        서비스 워커 등록 (상대경로 — 하위 경로 배포 대비)
-  nav.js          떠 있는 상단 바 · i18n.js 한/영 · tour.js 튜토리얼
+  nav.js          공통 상단 바(.db-bar) · i18n.js 한/영 · tour.js 튜토리얼
   gallery.js      갤러리 페이지
 vendor/           tasks-vision · tasks-audio · tfjs (셀프호스팅)
 models/           hand/face/pose_lite .task · selfie_segmenter · yamnet .tflite
-design/           웹 도구 쪽 공용 디자인 킷 (이 앱에서는 쓰지 않는다)
+assets/img/       앱 아이콘 (icon.svg · icon-192/512 · maskable-512 · apple-touch-icon · favicon)
 ```
 
 ### 왜 엔진이 하나인가
@@ -71,12 +72,26 @@ design/           웹 도구 쪽 공용 디자인 킷 (이 앱에서는 쓰지 �
 변환 안에서 그리므로 어느 쪽이든 영상과 맞는다. 레코드에 `mirrored` 로
 남는다.
 
-### 테마
+### 브랜드 · 테마
 
-`css/theme-maker.css`(학습지 종이 테마)는 이 앱에서 쓰지 않는다. 흰 종이
-바탕 + 흰 헤더 상자 + 명조 제목을 전제하는 문서형 레이아웃용이라, 화면을
-카메라로 채우는 앱에는 정반대로 걸린다. 대신 파이보 계열 강조색(`#1F5F7A`)을
-`app.css` 안에 그대로 가져와 한 제품으로 보이게 했다.
+DigitalBrain(https://dibrain.dev/) 브랜드를 따른다. 원본은 `leeyunjai.github.io`
+저장소의 `brand/` 이고, 여기에는 복사만 한다.
+
+- `css/db-tokens.css` = `brand/tokens.css` 그대로. 값을 바꿀 때는 원본을 고치고
+  다시 복사한다. `<html data-db-app="ai-shot" data-db-theme="dark">` 라서
+  강조색은 `--db-accent` `#9d86ff`(선택·활성·게이지·랜드마크 선), 그 위 글자는
+  `--db-on-accent`. 흰 글자가 올라가는 채운 버튼만 `#6d4ae6`(`--acc-strong`).
+  바탕·카드·선·보조 글자는 `--db-bg` `--db-card` `--db-line` `--db-sub`.
+  카메라 무대(`#stage`)만 순수한 어두운 색으로 둔다.
+- 상단 바는 공통 `.db-bar`: 왼쪽 브랜드 마크(누르면 https://dibrain.dev/) + 앱
+  이름, 오른쪽 도움말·전체화면·언어(`.db-btn`, 44px). 마크 SVG 경로는
+  `brand/README.md` 의 "마크 경로" 그대로 — 색·모양을 바꾸지 말 것.
+- 아이콘은 `brand/dist/ai-shot/` 에서 복사한다(보라 둥근 사각형 + 뷰파인더 +
+  셔터). 캐릭터·회사 로고는 넣지 않는다. 오프라인 exe 아이콘
+  `tools/portable/icon.ico` 도 같은 그림이다.
+- 언어: 처음에는 브라우저(`navigator.language` 가 `ko` 로 시작하면 한국어, 아니면
+  영어)를 따르고, 상단 바 토글로 고르면 localStorage `ai-shot-language` 에 남아
+  그쪽이 이긴다. 같은 출처(dibrain.dev)의 다른 앱과 섞이지 않게 앱 전용 키를 쓴다.
 
 ### 만질 때 주의할 상수
 
