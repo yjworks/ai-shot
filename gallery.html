@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="assets/fonts/pretendard.css?v=3">
 <link rel="stylesheet" href="css/all.min.css?v=3">
 <link rel="stylesheet" href="css/db-tokens.css?v=4">
-<link rel="stylesheet" href="css/app.css?v=4">
+<link rel="stylesheet" href="css/app.css?v=5">
 </head>
 <body class="gal">
 
@@ -56,6 +56,12 @@
     <input type="file" id="impFile" accept=".zip" style="display:none">
   </section>
 
+  <!-- 기록 전체 삭제 — 이 앱 것만 지운다(lib/records.js, 블로그 저장소 brand/README.md) -->
+  <footer class="db-reset-row">
+    <span>기록은 이 기기에만 저장됩니다. 사진 보관함 · 가르친 동작 · 설정</span>
+    <button type="button" class="db-reset" id="dbReset">기록 전체 삭제</button>
+  </footer>
+
 </div>
 
 <div id="viewer">
@@ -71,10 +77,11 @@
 
 <div id="toast"></div>
 
+<script src="lib/records.js?v=1"></script>
 <script src="lib/swreg.js?v=3"></script>
-<script src="lib/nav.js?v=4"></script>
-<script src="lib/i18n.js?v=4"></script>
-<script src="lib/tour.js?v=4"></script>
+<script src="lib/nav.js?v=5"></script>
+<script src="lib/i18n.js?v=5"></script>
+<script src="lib/tour.js?v=5"></script>
 <script src="vendor/tfjs/tf.min.js"></script>
 <script src="lib/jszip.min.js"></script>
 <script type="module" src="lib/gallery.js?v=4"></script>

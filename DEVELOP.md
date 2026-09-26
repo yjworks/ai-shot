@@ -90,7 +90,7 @@ DigitalBrain(https://dibrain.dev/) 브랜드를 따른다. 원본은 `leeyunjai.
   셔터). 캐릭터·회사 로고는 넣지 않는다. 오프라인 exe 아이콘
   `tools/portable/icon.ico` 도 같은 그림이다.
 - 언어: 처음에는 브라우저(`navigator.language` 가 `ko` 로 시작하면 한국어, 아니면
-  영어)를 따르고, 상단 바 토글로 고르면 localStorage `ai-shot-language` 에 남아
+  영어)를 따르고, 상단 바 토글로 고르면 localStorage `ai-shot:language` 에 남아
   그쪽이 이긴다. 같은 출처(dibrain.dev)의 다른 앱과 섞이지 않게 앱 전용 키를 쓴다.
 
 ### 만질 때 주의할 상수
@@ -138,6 +138,16 @@ DigitalBrain(https://dibrain.dev/) 브랜드를 따른다. 원본은 `leeyunjai.
 - `requestPersist()` 를 두 페이지 시작에서 부른다. 부르지 않으면 저장소가
   best-effort 등급이라 기기 용량이 빠듯해질 때 브라우저가 **통째로 비운다**.
   수업 중 사진과 모델이 예고 없이 사라지는 경로가 이것이다.
+- 이름: dibrain.dev 는 모든 앱이 같은 출처라 저장하는 것은 전부 `ai-shot` 으로
+  시작한다 — localStorage·sessionStorage 는 `ai-shot:`(언어 `ai-shot:language`,
+  안내 `ai-shot:tour-<페이지>`, 전체화면 `ai-shot:fs`), IndexedDB 는 `ai-shot-photos`·
+  `ai-shot-models`, 캐시는 `ai-shot-shell-*`·`ai-shot-runtime-*`. 예외는 tf.js 가 이름을
+  정하는 `tensorflowjs` DB 인데, 그 안의 키가 `ai-shot-model-*` 이다.
+  예전 이름(`ai-shot-language`, `gl-tour-*`, `gl-fs`)은 `lib/records.js` 가 첫 로드 때 옮긴다.
+- 기록 전체 삭제: 갤러리 맨 아래 줄. `lib/records.js` 가 위의 localStorage·sessionStorage
+  키, 두 DB, `tensorflowjs` 안의 `ai-shot-model-*` 만 지우고
+  새로고침한다. 서비스 워커 캐시는 앱 코드와 모델 파일이라 기록이 아니므로 두고 간다.
+  새 저장소를 더하면 여기 목록에도 넣을 것.
 - 갤러리 위쪽 막대가 `navigator.storage.estimate()` 로 남은 용량을 보여 준다.
   90% 를 넘으면 촬영 중에도 한 번 알린다. 다 찬 뒤에 말하면 늦다.
 

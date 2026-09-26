@@ -282,6 +282,14 @@ body.gal header.db-bar{background:var(--db-bg);border-bottom-color:var(--db-line
 #stBar .sttrack{flex:1;height:5px;border-radius:999px;background:var(--db-line);overflow:hidden}
 #stBar .stfill{height:100%;width:0;border-radius:999px;background:var(--acc);transition:width .3s}
 #stBar .sttxt{font-size:11px;font-weight:700;color:var(--db-sub);white-space:nowrap}
+/* 기록 전체 삭제 — 갤러리 맨 아래. 딴짓 첫 화면 .hub-reset 과 같은 조용한 둥근 테두리 버튼 */
+.db-reset-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:8px;padding-top:14px;
+  border-top:1px solid var(--db-line);font-size:12px;line-height:1.6;color:var(--db-sub)}
+.db-reset-row .db-reset{margin-left:auto;min-height:var(--db-hit);padding:0 16px;border:1px solid var(--db-line);
+  border-radius:var(--db-pill);background:transparent;color:var(--db-sub);font:inherit;font-weight:700;
+  cursor:pointer;transition:color .14s,border-color .14s}
+.db-reset-row .db-reset:hover,.db-reset-row .db-reset:focus-visible{color:var(--db-text);border-color:var(--db-sub)}
+.db-reset-row .db-reset:disabled{opacity:.5;cursor:default}
 #stBar.warn .stfill{background:#E2794F}
 #stBar.warn .sttxt{color:#E2794F}
 .shot{position:relative;border:0;border-radius:12px;overflow:hidden;padding:0;
