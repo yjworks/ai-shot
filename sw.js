@@ -21,7 +21,7 @@
 // skipWaiting 은 일부러 쓰지 않는다. 돌고 있는 화면 밑에서 모듈이 바뀌면
 // 촬영 중에 깨질 수 있다. 새 버전은 탭을 모두 닫았다 열 때 올라온다.
 
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 // 같은 출처(dibrain.dev)의 다른 앱과 섞이지 않게 앱 이름으로 시작한다. v3 까지는 'aishot-' 였다.
 const SHELL = 'ai-shot-shell-' + CACHE_VERSION;
 const RUNTIME = 'ai-shot-runtime-' + CACHE_VERSION;
